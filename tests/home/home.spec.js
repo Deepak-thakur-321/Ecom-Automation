@@ -6,12 +6,12 @@ test.describe("Home Page Test", () => {
         await page.goto("/home");
     });
 
-    // ─── URL ──────────────────────────────────────────────
+    // URL
     test("Should Home Page Load Successfully", async ({ page }) => {
         await expect(page).toHaveURL("/home");
     });
 
-    // ─── Navbar ───────────────────────────────────────────
+    // Navbar
     test("Should display Navbar", async ({ page }) => {
         await expect(page.getByRole("navigation")).toBeVisible();
     });
@@ -20,55 +20,78 @@ test.describe("Home Page Test", () => {
         await expect(page.getByText("VELOR").first()).toBeVisible();
     });
 
-    // ─── Announcement Bar ─────────────────────────────────
+    // Announcement Bar
     test("Should display Announcement Bar", async ({ page }) => {
         await expect(page.getByText(/VELOR10/i)).toBeVisible();
     });
 
-    // ─── Hero Section ─────────────────────────────────────
+    // Hero
     test("Should display Hero section", async ({ page }) => {
         await expect(page.getByText(/Upgrade Your/i)).toBeVisible();
     });
 
-    test("Should have CTA button", async ({ page }) => {
+    // CTA
+    test("Should have Shop Now button", async ({ page }) => {
         await expect(
-            page.getByRole("link", { name: /shop|explore|browse/i })
+            page.getByRole("button", { name: /shop now/i })
         ).toBeVisible();
     });
 
-    // ─── Category Section ─────────────────────────────────
-    test("Should display all categories", async ({ page }) => {
-        const categories = ["T-SHIRTS", "SHIRTS", "JACKETS", "JEANS"];
-        for (const cat of categories) {
-            await expect(
-                page.getByText(new RegExp(cat, 'i')).first()
-            ).toBeVisible();
+
+    test("Should display category images", async ({ page }) => {
+        const categories = ["T-shirts", "Jeans", "Shirts", "Jackets", "Caps", "Bags", "Shoes", "Watches"]
+
+        for (const items of categories) {
+            await expect(page.getByText(items).last()).toBeVisible()
         }
+    })
+
+    test("Should navigate to categories", async ({ page }) => {
+
+        const links = [
+            { name: "T-shirts", href: "/category/t-shirts" },
+
+            { name: "Shirts", href: "/category/shirts" },
+
+            { name: "Jackets", href: "/category/jackets" },
+
+            { name: "Jeans", href: "/category/jeans" },
+
+            { name: "Caps", href: "/category/caps" },
+
+            { name: "Bags", href: "/category/bags" },
+
+            { name: "Shoes", href: "/category/shoes" },
+
+            { name: "Watches", href: "/category/watches" },
+
+        ];
+
+        for (const category of links) {
+            await page.goto("/home");
+            const item = page.locator(`a[href="${category.href}"]`).last();
+            await item.scrollIntoViewIfNeeded();
+            await item.click();
+            await expect(page).toHaveURL(new RegExp(category.href.replace("/category/", "")));
+        }
+
     });
 
-    test("Should navigate on category click", async ({ page }) => {
-        await page.getByText(/T-SHIRTS/i).first().click();
-        await expect(page).not.toHaveURL("/home");
-    });
-
-    // ─── Product Section ──────────────────────────────────
+    // Product Cards
     test("Should display product cards", async ({ page }) => {
-        // .group → apni site pe confirm karo DevTools se
-        const cards = page.locator(".group");
+        const cards = page.locator(".rounded-3xl.bg-white.shadow-xl");
         await expect(cards.first()).toBeVisible();
     });
 
     test("Should display at least 4 product cards", async ({ page }) => {
-        const cards = page.locator(".group");
+        const cards = page.locator(".rounded-3xl.bg-white.shadow-xl");
         const count = await cards.count();
         expect(count).toBeGreaterThanOrEqual(4);
     });
 
-    // ─── Footer ───────────────────────────────────────────
+    // Footer
     test("Should display Footer", async ({ page }) => {
-        await expect(
-            page.getByRole("contentinfo")
-        ).toBeVisible();
+        await expect(page.getByRole("contentinfo")).toBeVisible();
     });
 
 });
