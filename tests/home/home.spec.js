@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe("Home Page Test", () => {
-
+    
     test.beforeEach(async ({ page }) => {
         await page.goto("/home");
     });
