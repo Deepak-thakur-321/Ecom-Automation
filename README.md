@@ -1,125 +1,104 @@
-# VELOR E-Commerce QA Automation Suite (Playwright)
+#  VELOR E-Commerce QA Automation Suite
 
-Automated End-to-End testing project built using **Playwright + JavaScript** on a real-world React ecommerce application.
+End-to-End automation testing project built using **Playwright + JavaScript** on a real-world React ecommerce application.
 
-The goal of this project is to practice and demonstrate:
+## 🔗 Application Under Test
 
-- UI Testing
-- Functional Testing
-- Navigation Testing
-- Assertions & Validations
-- Cross-browser Testing
-- QA Automation Workflows
-- Real-world ecommerce test scenarios
+VELOR Fashion Commerce
+https://fashion-commerce-nine.vercel.app/home
 
 ---
 
-##  Application Under Test
+# Tech Stack
 
-**VELOR Fashion Commerce**
+* Playwright
+* JavaScript
+* Node.js
 
-Live URL:https://fashion-commerce-nine.vercel.app/home
+---
 
+#  Project Structure
 
-# Current Project Structure
-
+```txt
 ecom-automation/
 
 ├── tests/
-│      └── home/
-│            └── home.spec.js
+│   ├── home/
+│   │   └── home.spec.js
+│   └── auth/
+│       ├── login.spec.js
+│       └── register.spec.js
 
 ├── docs/
-│      └── notes.md
+│   └── notes.md
 
-├── screenshots/
-
-├── package.json
 ├── playwright.config.js
+├── package.json
 └── README.md
 ```
 
 ---
 
-# ✅ Test Coverage
+#  Test Coverage
 
-## Home Page Tests — `tests/home/home.spec.js`
+## Home Page
 
-| Test Scenario | Status |
-|---------------|---------|
-| Homepage loads successfully | ✅ |
-| Correct URL validation | ✅ |
-| Navbar visible | ✅ |
-| Brand logo visible | ✅ |
-| Announcement bar visible | ✅ |
-| Hero section visible | ✅ |
-| Shop Now CTA visible | ✅ |
-| All category items visible | ✅ |
-| Category navigation works | ✅ |
-| Product cards visible | ✅ |
-| Minimum products displayed | ✅ |
-| Footer visible | ✅ |
+* Homepage load validation
+* Navbar visibility
+* Hero section validation
+* CTA button validation
+* Category visibility
+* Category navigation
+* Product card validation
+* Footer validation
 
----
+## Login Page
 
-# Browser Testing Status
+* Login page load
+* Input field visibility
+* Empty form validation
+* Invalid credentials validation
+* Successful login
+* Register page navigation
 
-| Browser | Result |
-|----------|---------|
-| Chromium | ✅ Passed |
-| Firefox | ⚠️ Flaky locator issue observed |
-| Webkit | 🔄 Pending |
+## Register Page
 
-Notes:
-
-Firefox showed inconsistent visibility behavior during category navigation testing.
-
+* Register page load
+* Input field visibility
+* Empty form validation
+* Short password validation
+* Successful registration
+* Login page navigation
 
 ---
 
-#  Bugs / Observations Found
+#  Browser Testing
 
-### Issue:
-
-Category navigation occasionally fails in Firefox.
-
-### Expected:
-
-User should navigate to selected category page.
-
-### Actual:
-
-Locator visibility issue occurs.
-
-### Possible Cause:
-
-Browser-specific rendering or timing issue.
-
-Status:
-
-Investigating
+| Browser  | Status                          |
+| -------- | ------------------------------- |
+| Chromium | ✅                               |
+| Firefox  | ⚠️ Flaky locator issue observed |
+| Webkit   | 🔄 Pending                      |
 
 ---
 
-#  Run Project Locally
+#  Known Issue
 
-Install dependencies:
+Firefox occasionally shows locator visibility issues during category navigation testing.
+
+---
+
+#  Run Locally
 
 ```bash
 npm install
 npx playwright install
 ```
 
-Run all tests:
+Run tests:
 
 ```bash
 npx playwright test
-```
-
-Run with browser:
-
-```bash
-npx playwright test --headed
 ```
 
 Run UI mode:
@@ -128,13 +107,13 @@ Run UI mode:
 npx playwright test --ui
 ```
 
-Run specific test:
+Run specific file:
 
 ```bash
-npx playwright test tests/home/home.spec.js
+npx playwright test tests/auth/login.spec.js
 ```
 
-View HTML report:
+View report:
 
 ```bash
 npx playwright show-report
@@ -142,30 +121,17 @@ npx playwright show-report
 
 ---
 
-#  Upcoming Test Modules
+#  Upcoming Modules
 
-Planned automation:
-
-- Login Testing
-- Signup Testing
-- Search Functionality
-- Cart Testing
-- Wishlist Testing
-- Checkout Flow
-- Profile Testing
-- API Testing
-- Page Object Model (POM)
+* Cart Testing
+* Search Testing
+* Wishlist Testing
+* Checkout Flow
+* API Testing
+* Page Object Model (POM)
 
 ---
 
-#  Purpose of This Repository
+#  Purpose
 
-This repository is being built as a **QA Automation portfolio project** while testing a real ecommerce application using Playwright.
-
-Focus:
-
-- Practical QA skills
-- Automation workflows
-- Bug thinking
-- Interview preparation
-- Production-like testing structure
+This repository is being built as a QA Automation portfolio project focused on practical ecommerce testing workflows, automation skills, debugging, and real-world QA scenarios.
