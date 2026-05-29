@@ -1,15 +1,15 @@
-#  VELOR E-Commerce QA Automation Suite
+# VELOR E-Commerce QA Automation Suite
 
-End-to-End automation testing project built using **Playwright + JavaScript** on a real-world React ecommerce application.
+End-to-End QA Automation project built using **Playwright + JavaScript** on a real-world React ecommerce application.
 
-## 🔗 Application Under Test
+## Application Under Test
 
 VELOR Fashion Commerce
 https://fashion-commerce-nine.vercel.app/home
 
 ---
 
-# Tech Stack
+## Tech Stack
 
 * Playwright
 * JavaScript
@@ -17,7 +17,7 @@ https://fashion-commerce-nine.vercel.app/home
 
 ---
 
-#  Project Structure
+## Project Structure
 
 ```txt
 ecom-automation/
@@ -25,9 +25,13 @@ ecom-automation/
 ├── tests/
 │   ├── home/
 │   │   └── home.spec.js
-│   └── auth/
-│       ├── login.spec.js
-│       └── register.spec.js
+│   │
+│   ├── auth/
+│   │   ├── login.spec.js
+│   │   └── register.spec.js
+│   │
+│   └── cart/
+│       └── cart.spec.js
 
 ├── docs/
 │   └── notes.md
@@ -39,9 +43,9 @@ ecom-automation/
 
 ---
 
-#  Test Coverage
+## Test Coverage
 
-## Home Page
+### Home Page
 
 * Homepage load validation
 * Navbar visibility
@@ -52,50 +56,61 @@ ecom-automation/
 * Product card validation
 * Footer validation
 
-## Login Page
+### Login Page
 
 * Login page load
-* Input field visibility
+* Input field validation
 * Empty form validation
 * Invalid credentials validation
 * Successful login
 * Register page navigation
 
-## Register Page
+### Register Page
 
 * Register page load
-* Input field visibility
+* Input field validation
 * Empty form validation
 * Short password validation
 * Successful registration
 * Login page navigation
 
+### Cart Page
+
+* Cart page load
+* Shopping Bag visibility
+* Product added to cart validation
+* Order Summary validation
+* Subtotal validation
+* Shipping information validation
+* Total amount validation
+* Secure Checkout button validation
+* Continue Shopping button validation
+* Quantity increase validation
+* Remove item from cart
+* Navigation testing
+
 ---
 
-#  Browser Testing
+## Browser Testing
 
-| Browser  | Status                          |
-| -------- | ------------------------------- |
-| Chromium | ✅                               |
-| Firefox  | ⚠️ Flaky locator issue observed |
-| Webkit   | 🔄 Pending                      |
-
----
-
-#  Known Issue
-
-Firefox occasionally shows locator visibility issues during category navigation testing.
+| Browser  | Status                       |
+| -------- | ---------------------------- |
+| Chromium | ✅                            |
+| Firefox  | ⚠️ Some flaky locator issues |
+| Webkit   | 🔄 Pending                   |
 
 ---
 
-#  Run Locally
+## Run Locally
+
+Install dependencies:
 
 ```bash
 npm install
 npx playwright install
 ```
 
-Run tests:
+Run all tests:
 
 ```bash
 npx playwright test
@@ -110,10 +125,10 @@ npx playwright test --ui
 Run specific file:
 
 ```bash
-npx playwright test tests/auth/login.spec.js
+npx playwright test tests/cart/cart.spec.js
 ```
 
-View report:
+View HTML report:
 
 ```bash
 npx playwright show-report
@@ -121,17 +136,6 @@ npx playwright show-report
 
 ---
 
-#  Upcoming Modules
+## Purpose
 
-* Cart Testing
-* Search Testing
-* Wishlist Testing
-* Checkout Flow
-* API Testing
-* Page Object Model (POM)
-
----
-
-#  Purpose
-
-This repository is being built as a QA Automation portfolio project focused on practical ecommerce testing workflows, automation skills, debugging, and real-world QA scenarios.
+This project is being built to practice real-world QA Automation workflows, debugging, browser testing, and ecommerce application testing using Playwright.
