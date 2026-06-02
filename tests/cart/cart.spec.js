@@ -10,16 +10,14 @@ test.describe("Cart Page Tests", () => {
       await page.getByRole("button", { name: /sign in/i }).click();
       await page.waitForURL(/home/);
 
-      // Direct product page pe jao
       await page.goto("/product/1");
 
-      // Product name dynamically capture karo is page se
       const productName = await page.locator("h1").first().textContent();
 
-      // Add to cart
+
       await page.getByRole("button", { name: /add to cart/i }).click();
 
-      // Cart pe jao
+
       await page.goto("/cart");
 
       return productName.trim();
@@ -27,7 +25,7 @@ test.describe("Cart Page Tests", () => {
 
    //  Cart Page Tests
 
-   // ─── Page Load ──────────────────────────────────────── Pass
+   //  Page Load 
    test("Should load cart page", async ({ page }) => {
       await page.goto("/cart");
       await expect(page).toHaveURL(/cart/);
@@ -37,10 +35,10 @@ test.describe("Cart Page Tests", () => {
    test("Should display Shopping Bag heading", async ({ page }) => {
       await page.goto("/cart");
       await expect(page.getByText("Shopping Bag")).toBeVisible();
-   }); //Pass
+   });
 
 
-   // ─── Cart With Items ───────────────────────────────────
+   // Cart With Items
    test("Should display product in cart after adding", async ({ page }) => {
       const productName = await addProductToCart(page);
       await expect(page.getByText(productName)).toBeVisible()
@@ -81,15 +79,13 @@ test.describe("Cart Page Tests", () => {
       ).toBeVisible();
    });
 
-   // ─── Quantity Controls ─────────────────────────────────
+   //  Quantity Controls 
    test("Should increase quantity on plus click", async ({ page }) => {
       await addProductToCart(page);
 
-      // Quantity span current value
       const quantitySpan = page.locator('span.text-center').filter({ hasText: /^\d+$/ }).first();
       const before = await quantitySpan.textContent();
 
-      // Plus button — second button in quantity control div
       const plusBtn = page.locator('div.divide-x button').last();
       await plusBtn.click();
 
@@ -97,19 +93,17 @@ test.describe("Cart Page Tests", () => {
       expect(Number(after)).toBeGreaterThan(Number(before));
    });
 
-   // ─── Remove Item ───────────────────────────────────────
+   // Remove Item 
    test("Should remove item on delete click", async ({ page }) => {
       await addProductToCart(page);
 
-      // Delete button — hover:text-red-600 class se target karo
       const deleteBtn = page.locator('button.hover\\:text-red-600');
       await deleteBtn.click();
 
-      // Item hata — empty state ya 0 items
       await expect(page.getByText("Shopping Bag")).toBeVisible();
    });
 
-   // ─── Navigation ───────────────────────────────────────
+   //  Navigation 
    test("Should navigate to home on Continue Shopping click", async ({ page }) => {
       await addProductToCart(page);
       await page.getByRole("button", { name: /CONTINUE SHOPPING/i }).click();

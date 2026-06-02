@@ -62,7 +62,7 @@ test.describe("Product Detail Page Tests", () => {
       await expect(page.locator("span.w-16.text-center")).toHaveText("2");
    });
 
-   test.only("Should not decrease quantity below 1", async ({ page }) => {
+   test("Should not decrease quantity below 1", async ({ page }) => {
       await page.getByRole("button", { name: "-", exact: false }).click();
       await expect(page.locator("span.w-16.text-center")).toHaveText("1");
    });
