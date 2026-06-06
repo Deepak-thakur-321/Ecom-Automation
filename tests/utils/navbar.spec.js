@@ -133,7 +133,7 @@ test.describe("Navbar Tests", () => {
    });
 
    //  Cart Badge 
-   test.only("Should increase cart badge count after adding product", async ({ page }) => {
+   test("Should increase cart badge count after adding product", async ({ page }) => {
 
       // Login
       await page.goto("/login");
