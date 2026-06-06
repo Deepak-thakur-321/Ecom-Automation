@@ -131,6 +131,16 @@ ecom-automation/
 
 Some tests are intentionally retained for demonstrating defect identification and reporting capabilities. These failures highlight locator ambiguity, UI synchronization challenges, and edge-case validation scenarios commonly encountered during real-world QA automation projects.
 
+## Known Issues
+
+The application currently contains a few functional and UI-related issues identified during automation testing:
+
+- Cart badge count does not update reliably after product addition.
+- Quantity decrement validation requires further investigation.
+- Some cart summary locators return multiple matching elements, causing strict mode failures.
+
+These failures are documented intentionally as part of the QA process and demonstrate defect identification capabilities rather than test implementation issues.
+
 ## Browser Coverage
 
 | Browser  | Status  |
