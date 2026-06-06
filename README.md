@@ -32,80 +32,111 @@ ecom-automation/
 ## Test Coverage
 
 ### Home Page
-| Test Case | Status |
-|-----------|--------|
-| Page load and URL validation | ✅ |
-| Navbar and brand logo visibility | ✅ |
-| Announcement bar with offer code | ✅ |
-| Hero section and CTA button | ✅ |
-| All 8 category links visible | ✅ |
-| Category navigation on click | ✅ |
-| Product cards visible (min 4) | ✅ |
-| Footer visibility | ✅ |
+
+| Test Case                        | Status |
+| -------------------------------- | ------ |
+| Page load and URL validation     | ✅     |
+| Navbar and brand logo visibility | ✅     |
+| Announcement bar with offer code | ✅     |
+| Hero section and CTA button      | ✅     |
+| All 8 category links visible     | ✅     |
+| Category navigation on click     | ✅     |
+| Product cards visible (min 4)    | ✅     |
+| Footer visibility                | ✅     |
 
 ### Auth — Login
-| Test Case | Status |
-|-----------|--------|
-| Login page load | ✅ |
-| Email and password field visibility | ✅ |
-| Sign In button visibility | ✅ |
-| Error on invalid credentials | ✅ |
-| Empty form validation | ✅ |
-| Successful login and redirect | ✅ |
-| Navigation to Register | ✅ |
+
+| Test Case                           | Status |
+| ----------------------------------- | ------ |
+| Login page load                     | ✅     |
+| Email and password field visibility | ✅     |
+| Sign In button visibility           | ✅     |
+| Error on invalid credentials        | ✅     |
+| Empty form validation               | ✅     |
+| Successful login and redirect       | ✅     |
+| Navigation to Register              | ✅     |
 
 ### Auth — Register
-| Test Case | Status |
-|-----------|--------|
-| Register page load | ✅ |
-| Full name, email, password fields | ✅ |
-| Join MyStore button visibility | ✅ |
-| Empty form validation | ✅ |
-| Short password validation | ✅ |
-| Successful registration | ✅ |
-| Navigation to Login | ✅ |
+
+| Test Case                         | Status |
+| --------------------------------- | ------ |
+| Register page load                | ✅     |
+| Full name, email, password fields | ✅     |
+| Join MyStore button visibility    | ✅     |
+| Empty form validation             | ✅     |
+| Short password validation         | ✅     |
+| Successful registration           | ✅     |
+| Navigation to Login               | ✅     |
 
 ### Auth — Logout
-| Test Case | Status |
-|-----------|--------|
-| Logout redirects to login/home | ✅ |
+
+| Test Case                      | Status |
+| ------------------------------ | ------ |
+| Logout redirects to login/home | ✅     |
 
 ### Product Detail
-| Test Case | Status |
-|-----------|--------|
-| Dynamic navigation from collection | ✅ |
-| Product name in h1 | ✅ |
-| Category label and description | ✅ |
-| Size options S, M, L, XL | ✅ |
-| Size selection on click | ✅ |
-| Default quantity is 1 | ✅ |
-| Quantity increase on plus click | ✅ |
-| Quantity does not go below 1 | ✅ |
-| ADD TO CART button visible | ✅ |
-| Product added to cart after login | ✅ |
+
+| Test Case                          | Status |
+| ---------------------------------- | ------ |
+| Dynamic navigation from collection | ✅     |
+| Product name in h1                 | ✅     |
+| Category label and description     | ✅     |
+| Size options S, M, L, XL           | ✅     |
+| Size selection on click            | ✅     |
+| Default quantity is 1              | ✅     |
+| Quantity increase on plus click    | ✅     |
+| Quantity does not go below 1       | ✅     |
+| ADD TO CART button visible         | ✅     |
+| Product added to cart after login  | ✅     |
 
 ### Cart
-| Test Case | Status |
-|-----------|--------|
-| Cart page load | ✅ |
-| Shopping Bag heading | ✅ |
-| Product visible in cart after add | ✅ |
-| Order Summary section | ✅ |
-| Subtotal, Shipping FREE, Total | ✅ |
-| Secure Checkout button | ✅ |
-| Continue Shopping button | ✅ |
-| Quantity increase in cart | ✅ |
-| Remove item from cart | ✅ |
-| Continue Shopping navigation | ✅ |
+
+| Test Case                         | Status |
+| --------------------------------- | ------ |
+| Cart page load                    | ✅     |
+| Shopping Bag heading              | ✅     |
+| Product visible in cart after add | ✅     |
+| Order Summary section             | ✅     |
+| Subtotal, Shipping FREE, Total    | ✅     |
+| Secure Checkout button            | ✅     |
+| Continue Shopping button          | ✅     |
+| Quantity increase in cart         | ✅     |
+| Remove item from cart             | ✅     |
+| Continue Shopping navigation      | ✅     |
 
 ---
 
+## Test Execution Summary
+
+- Total Automated Tests: 79
+- Passed: 74
+- Failed: 5
+- Framework: Playwright
+- Language: JavaScript
+- Target Application: React E-Commerce Platform
+- Browser Coverage: Chromium
+
+### Areas Covered
+
+- Authentication Flow (Login, Register, Logout)
+- Home Page Validation
+- Product Detail Validation
+- Cart Functionality
+- Search Functionality
+- Navbar Navigation
+- UI Validation
+- Functional Testing
+
+### Known Limitations
+
+Some tests are intentionally retained for demonstrating defect identification and reporting capabilities. These failures highlight locator ambiguity, UI synchronization challenges, and edge-case validation scenarios commonly encountered during real-world QA automation projects.
+
 ## Browser Coverage
 
-| Browser | Status |
-|---------|--------|
+| Browser  | Status  |
+| -------- | ------- |
 | Chromium | ✅ Pass |
-| Firefox | ✅ Pass |
+| Firefox  | ✅ Pass |
 
 ---
 
